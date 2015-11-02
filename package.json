@@ -1,0 +1,37 @@
+{
+  "name": "react-validators",
+  "version": "0.1.0",
+  "description": "Advanced React PropType Validation",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel/register --recursive src/**/**/__tests__/*.js",
+    "build": "babel src --out-dir build",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lelandrichardson/react-validators.git"
+  },
+  "keywords": [
+    "react",
+    "props",
+    "proptype",
+    "validation",
+    "type",
+    "safety"
+  ],
+  "author": "Leland Richardson <leland.m.richardson@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lelandrichardson/react-validators/issues"
+  },
+  "homepage": "https://github.com/lelandrichardson/react-validators#readme",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "chai": "^3.4.0",
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "react": "^0.14.1"
+  }
+}
