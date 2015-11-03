@@ -8,8 +8,13 @@ const SHAPE_DEF = '__rv_shape_def__';
 const REQUIRE_DEF = '__rv_require_def__';
 const IS_SHAPE = '__rv_is_shape__';
 
+function isShape(obj) {
+  return !!obj[IS_SHAPE];
+}
+
 function coalesce(shape, required) {
   var merge = {};
+  var requires;
   for (var key in required) {
     if (!hasOwnProperty.call(required, key)) continue;
     if (!hasOwnProperty.call(shape, key)) {
@@ -17,8 +22,12 @@ function coalesce(shape, required) {
     }
     if (required[key] === null) {
       merge[key] = makeRequired(shape[key]);
+    } else if(isShape(shape[key])) {
+      // nested shape definition
+      requires = mergeRequires(shape[key][REQUIRE_DEF], required[key]);
+      merge[key] = makeRequired(coalesce(shape[key][SHAPE_DEF], requires));
     } else {
-      // nested obj
+      // nested obj hash
       merge[key] = makeRequired(coalesce(shape[key], required[key]));
     }
   }

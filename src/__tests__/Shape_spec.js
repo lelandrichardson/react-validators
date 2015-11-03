@@ -75,6 +75,27 @@ describe('Shape', () => {
         invalid(validator, { bar: { qoo: 1 } });
       });
 
+      it('allows you to specify nested props of a nested shape', () => {
+        const shapeA = Shape({ foo: Types.number, bar: Types.number });
+        const shapeB = Shape({ boo: shapeA, bam: Types.number });
+
+        const validator = shapeB.requires(`boo: { foo }`);
+        valid(validator, { boo: { foo: 1 }});
+        invalid(validator, { boo: {}});
+        invalid(validator, { bam: 2 });
+      });
+
+      it('allows you to specify nested props of a nested shape w/ requires', () => {
+        const shapeA = Shape({ foo: Types.number, bar: Types.number });
+        const shapeB = Shape({ boo: shapeA.requires(`bar`), bam: Types.number });
+
+        const validator = shapeB.requires(`boo: { foo }`);
+        valid(validator, { boo: { foo: 1, bar: 1 }});
+        invalid(validator, { boo: { foo: 1 }});
+        invalid(validator, { boo: {}});
+        invalid(validator, { bam: 2 });
+      });
+
     });
 
   });
