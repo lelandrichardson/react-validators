@@ -35,6 +35,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "react": "^0.14.1 || ^0.13.3"
+    "react": "*"
   }
 }
