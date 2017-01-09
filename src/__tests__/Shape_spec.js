@@ -107,6 +107,13 @@ describe('Shape', () => {
       expect(() => nestedShape.passedInto(Foo, 'foo')).to.throw;
     });
 
+    it('does not throw when a component lacks propTypes entirely', () => {
+      const validator = nestedShape.passedInto({}, 'foo');
+      valid(validator, {});
+      valid(validator, { foo: { boo: 1 } });
+      invalid(validator, { foo: 1 });
+    });
+
     describe('(Basic Shape)', () => {
       const FooBar = { propTypes: { foo: shape.requires(`foo, bar`) } };
       const BarBaz = { propTypes: { bar: shape.requires(`bar, baz`) } };

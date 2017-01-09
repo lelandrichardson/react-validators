@@ -79,7 +79,7 @@ function requires(defString) {
 }
 
 function passedInto(Component, propName) {
-  const propType = Component.propTypes[propName];
+  const propType = Component.propTypes ? Component.propTypes[propName] : {};
   const allRequires = mergeRequires(this[REQUIRE_DEF], propType[REQUIRE_DEF]);
   return enhance(this[SHAPE_DEF], allRequires);
 }
