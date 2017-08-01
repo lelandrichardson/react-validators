@@ -2,19 +2,7 @@ import nestedShape from '../nestedShape';
 import Types from '../Types';
 import { expect } from 'chai';
 
-function expectValidator(v) {
-  expect(typeof v).to.equal('function');
-  expect(typeof v.isRequired).to.equal('function');
-}
-
-function valid(validator, value) {
-  expect(validator({ value }, 'value', 'Foo')).to.be.null;
-}
-
-function invalid(validator, value) {
-  expect(validator({ value }, 'value', 'Foo')).to.be.instanceOf(Error);
-}
-
+import { valid, invalid, expectValidator } from './utils/validators';
 
 describe('nestedShapeType', () => {
   it('works', () => {
