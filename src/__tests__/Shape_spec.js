@@ -1,15 +1,9 @@
 import { expect } from 'chai';
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import Shape from '../Shape';
 import Types from '../Types';
 
-function valid(validator, value) {
-  expect(validator({ value }, 'value', 'Foo')).to.be.null;
-}
-
-function invalid(validator, value) {
-  expect(validator({ value }, 'value', 'Foo')).to.be.instanceOf(Error);
-}
+import { valid, invalid } from './utils/validators';
 
 describe('Shape', () => {
   const shape = Shape({

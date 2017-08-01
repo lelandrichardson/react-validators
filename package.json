@@ -30,12 +30,14 @@
     "babel": "^5.8.23",
     "chai": "^3.4.0",
     "mocha": "^2.3.3",
-    "react": "*"
+    "prop-types": "^15.5.10",
+    "react": "^16.0.0-beta.2"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
+    "prop-types": "*",
     "react": "*"
   }
 }
