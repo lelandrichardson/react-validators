@@ -29,15 +29,12 @@
   "devDependencies": {
     "babel": "^5.8.23",
     "chai": "^3.4.0",
-    "mocha": "^2.3.3",
-    "prop-types": "^15.5.10",
-    "react": "^16.0.0-beta.2"
+    "mocha": "^2.3.3"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "peerDependencies": {
-    "prop-types": "*",
-    "react": "*"
+  "dependencies": {
+    "prop-types": "^15.5.10"
   }
 }
