@@ -4,7 +4,9 @@
   "description": "Advanced React PropType Validation",
   "main": "build/index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel/register --recursive src/**/**/__tests__/*.js",
+    "mocha": "mocha --compilers js:babel/register --recursive src/**/**/__tests__/*.js",
+    "mocha:production": "NODE_ENV=production npm run mocha",
+    "test": "npm run mocha && npm run mocha:production",
     "build": "babel src --out-dir build",
     "prepublish": "npm run build"
   },

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
 export default function nestedShape(shape) {
@@ -11,5 +12,11 @@ export default function nestedShape(shape) {
       result[key] = shape[key];
     }
   }
-  return PropTypes.shape(result);
+  if (process.env.NODE_ENV === 'production') {
+    const shape = () => {};
+    shape.isRequired = () => {};
+    return shape;
+  } else {
+    return PropTypes.shape(result);
+  }
 }
