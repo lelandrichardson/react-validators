@@ -1,6 +1,6 @@
 {
   "name": "react-validators",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Advanced React PropType Validation",
   "main": "build/index.js",
   "scripts": {
