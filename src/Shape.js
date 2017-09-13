@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { parse } from './parse';
 import nestedShape from './nestedShape';
 
